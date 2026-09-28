@@ -6,10 +6,16 @@ marked *(learned)*.
 
 ## 1. Structure
 
-- Keep a small page in **one self-contained file** (HTML + CSS + JS), with no build step, until it genuinely needs one.
+- **Avoid huge files.** One concern per file, with the same limits as Python code:
+  - **~300 lines**: fine, keep an eye on it.
+  - **~500 lines**: warning sign, look for a natural split.
+  - **800+ lines**: refactor now.
+- Keep markup, styles, and scripts in separate files: `index.html`, `styles.css`, and scripts split by role, never one file mixing all three.
+- Split scripts by concern, for example: `api.js` (network), `router.js` (navigation), `dom.js` (element helpers), and one file per screen under `views/`.
+- If you can't summarize a file's purpose in one sentence, it's doing too much: split it.
+- One job per function; if describing it needs "and", split it.
 - Start with `<meta charset="utf-8">`, set `<html lang="…">`, and use `<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">`.
 - Use semantic elements: `<button>` for actions, `<a href>` for navigation, `<main>`, `<section>`, headings in order. Never make a `<div>` or `<span>` clickable.
-- One job per function; if describing it needs "and", split it.
 
 ## 2. Security
 
